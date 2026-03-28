@@ -1,0 +1,51 @@
+default:
+  margin:
+    percent: 8
+  colors:
+    foreground: "000000"
+    background: "ffffff"
+
+slide_title:
+  alignment: center
+  colors:
+    foreground: "000000"
+  bold: true
+  separator: false
+
+headings:
+  h1:
+    colors:
+      foreground: "000000"
+    bold: true
+  h2:
+    colors:
+      foreground: "000000"
+    bold: true
+  h3:
+    colors:
+      foreground: "000000"
+    bold: true
+
+code:
+  theme_name: "InspiredGitHub"
+  padding:
+    horizontal: 2
+    vertical: 1
+
+palette:
+  colors:
+    red: "d20000"
+    blue: "007aff"
+    purple: "6E66BA"
+    yellow: "FBC05E"
+    green: "8fc34f"
+  classes:
+    term:
+      foreground: "007aff"
+    good:
+      foreground: "007355"
+    bad:
+      foreground: "d20000"
+
+footer:
+  style: empty
