@@ -296,6 +296,7 @@ Demo
 - Time for Demo 01.
 - `ls`: list files in the directory
 - `cd <dir>`: change directory
+- `less <file>`: view the contents of a file (`q` to quit)
 - Tip: use the tab key for autocompletion!
 
 Tips
