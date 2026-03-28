@@ -31,7 +31,7 @@ no organization. Your job is to clean it up using only the command line.
 
 **Task**: how do you get `ls` to use colors?
 
-## Step 3: Explore the nested directories
+## Step 4: Explore the nested directories
 
 - Use `cd` without a directory name to go to your home directory.
 - Use `cd -` to jump back to your previous directory.
@@ -40,7 +40,7 @@ no organization. Your job is to clean it up using only the command line.
 
 **Task**: `cd` down into the `raw/` directory to see the survey data looks like, then go back up to the main demo directory.
 
-## Step 4: Create an organized folder structure
+## Step 5: Create an organized folder structure
 
 - Use `mkdir` to create new directories.
     - Accepts multiple arguments.
@@ -48,7 +48,7 @@ no organization. Your job is to clean it up using only the command line.
 **Task**: use `mkdir` to create three new directories: `scripts/`, `figures/`,
 and `data/`.
 
-## Step 5: Move files into the right places
+## Step 6: Move files into the right places
 
 - `mv <source> <destination>` moves a file or directory from the source path to the
   destination path.
@@ -59,7 +59,7 @@ and `data/`.
 **Task**: Move the plot images into `figures/`.
 **Task**: Move the CSV data files and the raw data into `data/`.
 
-## Step 6: Rename and copy files
+## Step 7: Rename and copy files
 
 - `mv <old-name> <new-name>` can also be used to rename files.
 - `cp <source> <destination>` copies files instead of moving them.
@@ -70,7 +70,7 @@ and `data/`.
 **Task**: Make a backup copy of `results.csv`: `cp results.csv results.bak.csv`
 **Task**: Copy the `scripts/` directory to your home directory.
 
-## Step 7: Delete junk files
+## Step 8: Delete junk files
 
 - `rm` deletes files, and `rm -r` deletes directories and their contents.
 - `rm -rf` deletes directories and their contents without prompting for
