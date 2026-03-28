@@ -38,6 +38,7 @@ no organization. Your job is to clean it up using only the command line.
 - Use `cd ..` to go up one level.
 - Use `pwd` to see your current directory.
 
+**Task** `cd` to your home directory, and then get back to the demo without using `cd -`.
 **Task**: `cd` down into the `raw/` directory to see the survey data looks like, then go back up to the main demo directory.
 
 ## Step 5: Create an organized folder structure
