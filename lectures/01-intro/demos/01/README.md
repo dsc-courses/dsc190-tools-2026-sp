@@ -46,7 +46,7 @@ no organization. Your job is to clean it up using only the command line.
 - Use `mkdir` to create new directories.
     - Accepts multiple arguments.
 
-**Task**: use `mkdir` to create three new directories: `scripts/`, `figures/`,
+**Task**: use `mkdir` to create three new directories in the project root: `scripts/`, `figures/`,
 and `data/`.
 
 ## Step 6: Move files into the right places
