@@ -265,7 +265,7 @@ Surprise!
   server.
 - To connect, open a terminal and type:
 <!-- alignment: center -->
-`ssh <your-username>@172.235.40.73`
+`ssh <your-username>@172.235.41.44`
 
 The Shell
 =========
