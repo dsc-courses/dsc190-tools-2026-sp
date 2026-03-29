@@ -258,14 +258,13 @@ Unix
 Surprise!
 =========
 
-- I have bought you all a Linux computer.
+- I have made you all a Linux computer.
 <!-- pause -->
-- Well, I've *rented* you all a Linux computer.
-- You should have received an email with your username/password for our course
-  server.
-- To connect, open a terminal and type:
+- Well, I've given you a Linux computer *inside* your computer.
+- You should have Docker installed from the initial setup.
+- To start, open a terminal and type:
 <!-- alignment: center -->
-`ssh <your-username>@172.235.41.44`
+`docker run -it --rm -v dsc190-tools-starter-home:/home/student ghcr.io/dsc-courses/dsc190-tools-starter`
 
 The Shell
 =========
