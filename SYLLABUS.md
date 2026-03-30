@@ -18,6 +18,18 @@ please let me know!
   [Website](eldridgejm.github.io)
   `jeldridge@ucsd.edu`
 
+## Gradescope and Campuswire
+
+We'll use Campuswire as the course messageboard and Gradescope for assignment submission and grading. You should have received invitations to both. If not,
+you can add yourself using the links and codes below:
+
+- Gradesope
+    - Link: https://www.gradescope.com/courses/1287049
+    - Code: `2DJ78R`
+- Campuswire
+    - Link: https://campuswire.com/c/G4177828B/feed
+    - Code: `6992`
+
 ## Required Materials
 
 To get the most out of this course, you will need access to an AI coding agent,
