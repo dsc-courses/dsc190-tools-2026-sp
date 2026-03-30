@@ -258,7 +258,7 @@ Unix
 Surprise!
 =========
 
-- I have made you all a Linux computer.
+- I have built you all a Linux computer.
 <!-- pause -->
 - Well, I've given you a Linux computer *inside* your computer.
 - You should have Docker installed from the initial setup.
