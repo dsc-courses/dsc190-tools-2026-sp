@@ -13,6 +13,7 @@ important files and directories are:
 - `lectures/`: slides and materials used for each lecture.
     - Each lecture is a markdown file (`slides.md`) that is meant to be
       displayed using [presenterm](https://mfontanini.github.io/presenterm/).
+    - PDF versions of the slides are linked from [`lectures/README.md`](lectures/README.md).
 - `assignments/`: starter code and instructions for each assignment
 - `resources/`: supplementary notes and guides on various topics.
 
