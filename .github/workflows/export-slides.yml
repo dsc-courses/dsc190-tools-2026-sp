@@ -49,7 +49,7 @@ jobs:
           for dir in ${{ steps.changed.outputs.dirs }}; do
             name=$(basename "$dir")
             echo "Exporting $dir/slides.md -> _pdfs/${name}.pdf"
-            presenterm --export-pdf "$dir/slides.md" -o "_pdfs/${name}.pdf"
+            script -qec "presenterm --export-pdf '$dir/slides.md' -o '_pdfs/${name}.pdf'" /dev/null
           done
 
       - name: Upload PDFs to B2
