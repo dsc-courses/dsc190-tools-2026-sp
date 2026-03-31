@@ -1,0 +1,101 @@
+name: Export slides to PDF
+
+on:
+  push:
+    branches: [main]
+    paths: ["lectures/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect changed slide decks
+        id: changed
+        run: |
+          dirs=$(git diff --name-only HEAD~1 HEAD -- 'lectures/' \
+            | grep -oP 'lectures/[^/]+' \
+            | sort -u)
+          # Filter to only directories that contain a slides.md
+          changed=""
+          for dir in $dirs; do
+            if [ -f "$dir/slides.md" ]; then
+              changed="$changed $dir"
+            fi
+          done
+          changed=$(echo "$changed" | xargs)
+          echo "dirs=$changed" >> "$GITHUB_OUTPUT"
+          echo "Changed lecture dirs: $changed"
+
+      - name: Install presenterm
+        if: steps.changed.outputs.dirs != ''
+        run: |
+          PRESENTERM_VERSION="0.14.0"
+          curl -fsSL "https://github.com/mfontanini/presenterm/releases/download/v${PRESENTERM_VERSION}/presenterm-${PRESENTERM_VERSION}-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar xz -C /usr/local/bin --strip-components=1
+
+      - name: Export changed slides to PDF
+        if: steps.changed.outputs.dirs != ''
+        run: |
+          mkdir -p _pdfs
+          for dir in ${{ steps.changed.outputs.dirs }}; do
+            name=$(basename "$dir")
+            echo "Exporting $dir/slides.md -> _pdfs/${name}.pdf"
+            presenterm --export-pdf "$dir/slides.md" -o "_pdfs/${name}.pdf"
+          done
+
+      - name: Upload PDFs to B2
+        if: steps.changed.outputs.dirs != ''
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.B2_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+        run: |
+          for pdf in _pdfs/*.pdf; do
+            name=$(basename "$pdf")
+            aws s3 cp "$pdf" \
+              "s3://dsc-courses/dsc190-tools-2026-sp/${name}" \
+              --endpoint-url "https://s3.us-west-000.backblazeb2.com"
+          done
+
+      - name: Rebuild lectures/INDEX.md
+        run: |
+          cat > lectures/INDEX.md << 'HEADER'
+          # Lecture Slides
+
+          | Lecture | Slides |
+          |---------|--------|
+          HEADER
+
+          for dir in lectures/*/; do
+            [ -f "$dir/slides.md" ] || continue
+            name=$(basename "$dir")
+            # Extract lecture title from first H1 or setext heading
+            title=$(grep -m1 -E '^#\s|^====' "$dir/slides.md" | head -1)
+            if echo "$title" | grep -q '===='; then
+              # Setext style — title is the line before the ====
+              title=$(grep -B1 '====' "$dir/slides.md" | head -1)
+            else
+              title=$(echo "$title" | sed 's/^#\s*//')
+            fi
+            # Clean any markdown/html formatting from title
+            title=$(echo "$title" | sed 's/<[^>]*>//g; s/\*\*//g; s/\*//g')
+            title=${title:-$name}
+            url="https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/${name}.pdf"
+            echo "| ${title} | [PDF](${url}) |" >> lectures/INDEX.md
+          done
+
+      - name: Commit INDEX.md
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add lectures/INDEX.md
+          git diff --cached --quiet && echo "No changes to INDEX.md" && exit 0
+          git commit -m "Update lectures/INDEX.md with slide PDFs"
+          git push
