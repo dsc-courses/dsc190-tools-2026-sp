@@ -317,3 +317,4 @@ Note
 - The shell is the program that *interprets* your commands.
 - The terminal is the program that *displays* the shell.
 - Browser : Website :: Terminal : Shell
+
