@@ -44,12 +44,16 @@ jobs:
 
       - name: Export changed slides to PDF
         if: steps.changed.outputs.dirs != ''
+        env:
+          LINES: "25"
+          COLUMNS: "80"
+          TERM: "xterm-256color"
         run: |
           mkdir -p _pdfs
           for dir in ${{ steps.changed.outputs.dirs }}; do
             name=$(basename "$dir")
             echo "Exporting $dir/slides.md -> _pdfs/${name}.pdf"
-            script -qec "stty rows 25 cols 80; presenterm --export-pdf '$dir/slides.md' -o '_pdfs/${name}.pdf'" /dev/null
+            script -qec "stty rows 25 cols 80 && presenterm --export-pdf '$dir/slides.md' -o '_pdfs/${name}.pdf'" /dev/null
           done
 
       - name: Upload PDFs to B2
