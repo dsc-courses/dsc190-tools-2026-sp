@@ -17,7 +17,7 @@ no organization. Your job is to clean it up using only the command line.
     - Scroll (slowly) with arrow keys or (or `j` and `k`).
     - Scroll faster with `Ctrl-d` (down) and `Ctrl-u` (up).
     - Jump to the end with `G` and back to the top with `g`.
-    - Use `/` to search.
+    - Use `/` to search. `n` goes to next match, `p` to previous.
     - Press `q` to quit.
 
 **Question**: What name is in the last line of the file?
@@ -28,6 +28,8 @@ no organization. Your job is to clean it up using only the command line.
 - Most commands have a `-h` or `--help` flag that shows usage information.
 - You can also use `man <command>` to read the manual page for a command.
     - Works the same as `less`.
+- `tldr` gives concise usage examples for common commands.
+    - It isn't installed everywhere!
 
 **Task**: how do you get `ls` to use colors?
 
@@ -44,7 +46,8 @@ no organization. Your job is to clean it up using only the command line.
 ## Step 5: Create an organized folder structure
 
 - Use `mkdir` to create new directories.
-    - Accepts multiple arguments.
+    - Accepts multiple directory names at once.
+    - `mkdir -p foo/bar/baz` creates nested directories in one command.
 
 **Task**: use `mkdir` to create three new directories in the project root: `scripts/`, `figures/`, and `data/`.
 
@@ -65,7 +68,6 @@ no organization. Your job is to clean it up using only the command line.
 - `cp <source> <destination>` copies files instead of moving them.
     - The `-r` flag can be used to copy directories and their contents recursively.
 
-
 **Task**: Rename `data_FINAL_v2.csv` to `cleaned-data.csv`.
 **Task**: Make a backup copy of `results.csv`: `cp results.csv results.bak.csv`
 **Task**: Copy the `scripts/` directory to your home directory.
@@ -75,6 +77,7 @@ no organization. Your job is to clean it up using only the command line.
 - `rm` deletes files, and `rm -r` deletes directories and their contents.
 - `rm -rf` deletes directories and their contents without prompting for
   confirmation.
+- Be VERY CAREFUL! There is no "undo" for `rm`.
 
 **Task**: Remove the temp file.
 **Task**: Remove the hidden `.DS_Store`.

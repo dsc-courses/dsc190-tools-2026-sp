@@ -298,18 +298,6 @@ Demo
 - `less <file>`: view the contents of a file (`q` to quit)
 - Tip: use the tab key for autocompletion!
 
-Tips
-====
-
-Use the keyboard shortcuts!
-
-<!-- list_item_newlines: 1 -->
-- Up/down arrows: cycle through command history
-- Ctrl-a / Ctrl-e: move to beginning/end of line
-- Ctrl-u: delete from cursor to beginning of line
-- Ctrl-w: delete previous word
-- Alt-left/right: move cursor one word left/right
-
 Note
 ====
 

@@ -27,7 +27,8 @@ headings:
     bold: true
 
 code:
-  theme_name: "InspiredGitHub"
+  theme_name: "Dracula"
+  background: true
   padding:
     horizontal: 2
     vertical: 1
@@ -46,6 +47,8 @@ palette:
       foreground: "007355"
     bad:
       foreground: "d20000"
+    code:
+      background: "e0e0e0"
 
 footer:
   style: empty
