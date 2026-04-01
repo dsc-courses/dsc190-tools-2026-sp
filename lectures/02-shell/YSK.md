@@ -77,25 +77,25 @@
 - What does pressing the up arrow key do at the command line?
     - **Answer**: cycles through previous commands in your history
 
-- What does <Alt-w> do at the command line? (Option-w on Mac)
+- What does `<Alt-w>` do at the command line? (Option-w on Mac)
     - **Answer**: deletes the word before the cursor
 
-- What does <Alt-left arrow> do at the command line? (Option-left arrow on Mac)
+- What does `<Alt-left arrow>` do at the command line? (Option-left arrow on Mac)
     - **Answer**: moves the cursor one word to the left
 
-- What does <Alt-right arrow> do at the command line? (Option-right arrow on Mac)
+- What does `<Alt-right arrow>` do at the command line? (Option-right arrow on Mac)
     - **Answer**: moves the cursor one word to the right
 
-- What does <Ctrl-u> do at the command line?
+- What does `<Ctrl-u>` do at the command line?
     - **Answer**: deletes everything from the cursor to the beginning of the line
 
-- What does <Ctrl-a> do at the command line?
+- What does `<Ctrl-a>` do at the command line?
     - **Answer**: moves the cursor to the beginning of the line
 
-- What does <Ctrl-e> do at the command line?
+- What does `<Ctrl-e>` do at the command line?
     - **Answer**: moves the cursor to the end of the line
 
-- What does <Ctrl-w> do at the command line?
+- What does `<Ctrl-w>` do at the command line?
     - **Answer**: deletes the word before the cursor
 
 # The `find` command
