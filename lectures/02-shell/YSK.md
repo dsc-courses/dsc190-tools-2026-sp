@@ -38,8 +38,17 @@
 - What does `less` do?
     - **Answer**: opens a file for viewing one screen at a time
 
-- How do you scroll down in `less`?
-    - **Answer**: arrow keys, `j`, or `Ctrl-d` (half page)
+- How do you scroll down by one line in `less`?
+    - **Answer**: down arrow key or `j`.
+
+- How do you scroll up by one line in `less`?
+    - **Answer**: up arrow key or `k`.
+
+- How do you scroll down by one-half page in `less`?
+    - **Answer**: `<ctrl-d>`
+
+- How do you scroll up by one-half page in `less`?
+    - **Answer**: `<ctrl-u>`
 
 - How do you jump to the end of a file in `less`?
     - **Answer**: press `G`
