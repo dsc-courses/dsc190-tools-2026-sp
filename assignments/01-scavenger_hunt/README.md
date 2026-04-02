@@ -45,6 +45,13 @@ These are paths *inside* the old file system. On your machine, they live under
 the `filesystem/` directory. So `/home/thornton` means
 `filesystem/home/thornton`.
 
+**A note on tools:** All of the clues are solvable with the commands we learned
+(`ls`, `cd`, `less`, `find`, `grep`), but some of them might require options or
+features we *didn't* cover in lecture. That's intentional: you should use
+`--help`, `man`, `tldr` -- or ask an AI -- to figure out how to use the
+commands in new ways. Reading the manual is a key part of working with any new
+tool, after all.
+
 ## Submission
 
 Once you have collected all 8 codewords, create a file called `answers.txt`
