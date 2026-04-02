@@ -1,4 +1,6 @@
 # Assignment 01: The Haunted Server
+**Due**: Wednesday, April 8 at 11:59 PM on Gradescope
+
 
 During renovations of the HDSI building -- which had previously housed the
 literature department since the early days of the university -- workers
