@@ -27,3 +27,12 @@ If you'd like to view this repository on the web, you can find it at:
 
 This repo is designed to be used by agentic AIs, like Claude Code. There is a full
 collection of skills that AIs can use in the `.agents/skills/` directory.
+
+## Office Hours
+
+| Name        | Day/Time             |
+|-------------|----------------------|
+| Justin      | Fridays, 1:00–2:00pm in HDSI 346 |
+| Saara (TA)  | TBD                  |
+| John (TA)   | TBD                  |
+
