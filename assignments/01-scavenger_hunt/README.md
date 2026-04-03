@@ -17,7 +17,7 @@ fragments that didn't belong to any user, references to something called
 **PHANTOM**, and codewords hidden in places no one should have been writing to.
 
 No one knows who left them there. Campus IT has made a copy of the file system
-They're asking for your help investigating it.
+and they're asking for your help investigating it.
 
 ## Your Mission
 
