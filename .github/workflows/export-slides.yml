@@ -42,6 +42,12 @@ jobs:
             | tar xz -C /usr/local/bin --strip-components=1
           pip install weasyprint
 
+      - name: Install custom highlighting themes
+        if: steps.changed.outputs.dirs != ''
+        run: |
+          mkdir -p ~/.config/presenterm/themes/highlighting
+          cp .presenterm/themes/highlighting/*.tmTheme ~/.config/presenterm/themes/highlighting/
+
       - name: Export changed slides to PDF
         if: steps.changed.outputs.dirs != ''
         env:
