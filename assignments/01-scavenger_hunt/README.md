@@ -17,7 +17,7 @@ fragments that didn't belong to any user, references to something called
 **PHANTOM**, and codewords hidden in places no one should have been writing to.
 
 No one knows who left them there. Campus IT has made a copy of the file system
-They're asking for your help investigating it.
+and they're asking for your help investigating it.
 
 ## Your Mission
 
@@ -57,5 +57,6 @@ tool, after all.
 Once you have collected all 8 codewords, create a file called `answers.txt`
 with one codeword per line (in the order you found them) and submit it to
 Gradescope. Your submission must contain all 8 codewords -- partial submissions
-will not be graded. The autograder is entirely public -- if you pass it, you
-have the right codewords in the right order, and you'll get full credit.
+will not be graded. The autograder is entirely public -- if you pass all of
+the tests you have the right codewords in the right order and you'll get full
+credit.
