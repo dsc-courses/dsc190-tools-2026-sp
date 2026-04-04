@@ -27,7 +27,7 @@ headings:
     bold: true
 
 code:
-  theme_name: "Dracula"
+  theme_name: "Dracula-Bright"
   background: true
   padding:
     horizontal: 2
@@ -49,6 +49,8 @@ palette:
       foreground: "d20000"
     code:
       background: "e0e0e0"
+    exercise:
+      foreground: "6E66BA"
 
 footer:
   style: empty
