@@ -434,6 +434,18 @@ Idea
 # -H prints file name, -n prints line number
 find . -name '*.py' -exec grep -nH 'TODO' {} \;
 ```
+
+Even Simpler...
+===============
+
+- grep's --include flags let you specify a pattern to apply to filenames
+- This is less flexible than find -exec.
+
+```bash
+# search for "TODO" in all python files
+grep -rn --include='*.py' 'TODO' .
+```
+
 Regular Expressions
 ===================
 
