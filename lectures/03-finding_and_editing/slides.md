@@ -12,8 +12,10 @@ options:
 
 **<span class="term">Lecture 03 — Finding and Editing</span>**
 
-Follow Along
-============
+Finding and Editing
+===================
+
+To follow along:
 
 1. Run `bash start-linux.sh`.
 2. `cd` into the course repository directory.
