@@ -502,3 +502,4 @@ VIM
 - But it has a (very) steep learning curve.
 - For this class, you only need to know one thing about VIM: how to quit it.
     - Press `Esc` to make sure you're in "normal mode", then type `:q` and press Enter to quit.
+
