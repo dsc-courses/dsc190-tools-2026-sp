@@ -33,6 +33,6 @@ collection of skills that AIs can use in the `.agents/skills/` directory.
 | Name        | Day/Time             |
 |-------------|----------------------|
 | Justin      | Fridays, 1:00–2:00pm in HDSI 346 |
-| Saara (TA)  | TBD                  |
+| Saara (TA)  | Fridays, 12:30-1:30pm in HDSI 240 |
 | John (TA)   | Wednesdays, 12:00-1:30pm on [Zoom](https://ucsd.zoom.us/j/96551570841) |
 
