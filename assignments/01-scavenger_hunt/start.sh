@@ -7,6 +7,11 @@ fi
 
 PID=$(echo "$1" | tr '[:lower:]' '[:upper:]')
 
+if ! echo "$PID" | grep -qE '^[A-Z][0-9]{8}$'; then
+    echo "Error: PID should be a letter followed by 8 digits (e.g., A12345678)."
+    exit 1
+fi
+
 echo ""
 echo "Welcome, $PID."
 echo ""
