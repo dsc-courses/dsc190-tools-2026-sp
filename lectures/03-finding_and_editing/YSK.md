@@ -3,7 +3,7 @@
 - What does `find . -name '*.csv'` do?
     - **Answer**: recursively searches for anything with a name that ends in ".csv" under the current directory
 
-- What does `find foo/ -name bar` do?
+- What does `find foo/ -name 'bar'` do?
     - **Answer**: recursively searches for things named "bar" (exactly) under the directory "foo"
 
 - Your current directory contains a file named "test_backend.py". Will `find . -name 'test'` match it?
