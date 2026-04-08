@@ -24,6 +24,7 @@ To follow along:
 demo 4 1
 ```
 
+---
 
 <!-- new_lines: 4 -->
 <!-- alignment: center -->
@@ -52,11 +53,12 @@ nano <file>
 - Bottom toolbar shows important keyboard shortcuts.
     - "^X" means "Ctrl-X"
 
-<span class="exercise">**Exercise: demo 3 1**</span>
+<span class="exercise">**Exercise: demo 4 1**</span>
 ===
 
-Edit the README.md and add a line that says "Hello world!". Then save, quit,
-and use `less` to verify that your change was made.
+Edit the README.md and add a line that says "Hello world!".
+
+Then save, quit, and use `less` to verify that your change was made.
 
 VIM
 ===
@@ -65,6 +67,8 @@ VIM
 - But it has a (very) steep learning curve.
 - For this class, you only need to know one thing about VIM: how to quit it.
     - Press `Esc` to make sure you're in "normal mode", then type `:q` and press Enter to quit.
+
+---
 
 <!-- new_lines: 4 -->
 <!-- alignment: center -->
@@ -96,7 +100,7 @@ Shell Features
 <span class="term">**Globbing**</span>
 ===
 
-- Globbing: a way to specify multiple files using patterns.
+- Globbing is a way to specify multiple files using patterns.
 - *: matches any sequence of characters.
 - ?: matches any single character.
 
@@ -126,11 +130,16 @@ cp *.txt data/
 How does this work?
 ===================
 
-- When you type a command, the shell:
-    1. Parses the command into a program and its arguments.
-    2. Finds that program on the system.
-    3. Executes the program, passing it the arguments.
-- Globbing happens during the parsing step.
+- The shell <span class="term">**expands**</span> certain
+special characters before running the command.
+
+```bash
+# you write:
+cp *.csv data/
+
+# this gets transformed into...
+cp revenue.csv sales_q1.csv sales_q2.csv data/
+```
 
 Let's try it
 ============
@@ -290,8 +299,6 @@ What we found...
 - **Double quotes**: substitute, but don't split.
 - **Single quotes**: don't substitute, don't split.
 
-- Typically, you want double quotes.
-
 Variables are just strings
 ==========================
 
@@ -317,6 +324,7 @@ Command Substitution
 ====================
 
 - The shell also allows you to use the output of one command as an argument to another.
+- Syntax: `$(command)`
 
 ```bash
 # prints the current date in YYYY-MM-DD format
@@ -454,7 +462,7 @@ Output Redirection
 
 ```bash
 # save the list of CSV files to a text file
-find . -name '*.csv' > csv_files.txt
+find . -name '*.csv' > files.txt
 ```
 
 Example
@@ -462,7 +470,7 @@ Example
 
 ```bash
 # save the list of CSV files to a text file
-find . -name '*.csv' > csv_files.txt
+find . -name '*.csv' > files.txt
 ```
 
 
@@ -473,7 +481,7 @@ Output Redirection, Append Mode
 
 ```bash
 # append the list of Python files to the same text file
-find . -name '*.py' >> csv_files.txt
+find . -name '*.py' >> files.txt
 ```
 
 Redirecting Standard Error
@@ -481,12 +489,45 @@ Redirecting Standard Error
 
 - The `2>` operator redirects STDERR to a file.
 
+```bash
+# search the whole filesystem, showing lots of
+# permission denied errors
+find / -name test
+
+# redirect the errors to a file
+find / -name test 2> errors.txt
+
+# redirect the errors to an endless void
+find / -name test 2> /dev/null
+```
+
+Example
+=======
+
+```bash
+find / -name test 2> errors.txt
+```
+
+![image:w:100%](fig/stderr-redirect.png)
 
 Redirecting Both
 ================
 
 - To redirect both STDOUT and STDERR to the same file, you can use `&>`:
 
+```bash
+# send both results and error messages to the same file
+find / -name test &> output.txt
+```
+
+Example
+=======
+
+```bash
+find / -name test &> output.txt
+```
+
+![image:w:100%](fig/redirect-both.png)
 
 The UNIX Philosophy
 ===================
