@@ -1,10 +1,6 @@
 ---
 theme:
   path: ../../.presenterm/theme.yaml
-  override:
-    footer:
-      style: template
-      right: "{current_slide} / {total_slides}"
 options:
   list_item_newlines: 2
 ---
