@@ -86,8 +86,6 @@
 - What does pressing the up arrow key do at the command line?
     - **Answer**: cycles through previous commands in your history
 
-- What does `<Alt-w>` do at the command line? (Option-w on Mac)
-    - **Answer**: deletes the word before the cursor
 
 - What does `<Alt-left arrow>` do at the command line? (Option-left arrow on Mac)
     - **Answer**: moves the cursor one word to the left
