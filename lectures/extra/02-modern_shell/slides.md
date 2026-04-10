@@ -66,6 +66,7 @@ fish
     - Better auto-completion
     - Color!
     - More!
+- Only *somewhat* bash-compatible.
 
 lsd
 ===
