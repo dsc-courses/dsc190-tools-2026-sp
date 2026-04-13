@@ -81,7 +81,7 @@ echo $name
 Convention
 ==========
 
-- By convention, environment variable names are all uppercase.
+- By convention, environment variable names should be in all caps.
 
 ```bash
 export NAME="Justin"
@@ -122,6 +122,7 @@ Environment Variables and Python
 - In Python, you can access them via the `os` module:
 
 ```python
+# in your python script...
 import os
 print(os.environ['NAME'])
 ```
@@ -254,6 +255,7 @@ Python's Search Path
 - Python looks for packages in the directories listed in the `sys.path` variable.
 
 ```python
+# in your python script...
 import sys
 print(sys.path)
 ```
@@ -287,6 +289,7 @@ Modifying the Search Path
 To modify the package search path, set the `sys.path` variable in your script:
 
 ```python
+# in my_script.py
 import sys
 sys.path.append('/path/to/my/packages')
 ```
@@ -297,6 +300,7 @@ Alternative: PYTHONPATH
 You can also set the `PYTHONPATH` environment variable:
 
 ```bash
+# in the shell
 export PYTHONPATH="/path/to/my/packages:$PYTHONPATH"
 python3 my_script.py
 ```
@@ -322,6 +326,7 @@ One answer: pip
 - `pip` is the standard Python package manager.
 - To install a package, run:
 ```bash
+# in the shell
 pip install numpy
 ```
 <!-- pause -->
