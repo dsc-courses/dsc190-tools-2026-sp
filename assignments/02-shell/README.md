@@ -351,7 +351,7 @@ relative to the home directory in the container. For example, if you wrote `setu
 and your container ID is "22a2d", you would run:
 
 ```bash
-docker cp 22a2d:/home/student/assignments/02-shell/setup_analysis.sh .
+docker cp 22a2d:/home/student/dsc190-tools-2026-sp/assignments/02-shell/setup_analysis.sh .
 ```
 
 This will copy the file from the container to your current directory on your
