@@ -1,0 +1,19 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{gitfig}
+\begin{document}
+\begin{gitfigure}
+  \gitcommits{a1b2c3}
+  \githead{a1b2c3}
+  \worktree{%
+    \blob{README.md}{v1}%
+    \blob{main.py}{v1}%
+  }
+  \staging{%
+    \blob{README.md}{v1}%
+    \blob{main.py}{v1}%
+  }
+  \headtree{%
+    \blob{README.md}{v1}%
+  }
+\end{gitfigure}
+\end{document}

@@ -1,0 +1,167 @@
+% gitfig.sty -- helpers for drawing Git three-trees figures.
+%
+% Provides:
+%   gitfigure      environment (a tikzpicture with auto-layout for trees)
+%   \gittree{L}{C} draw a tree with label L and content C (auto-positioned)
+%   \blob{F}{V}    a file row: filename F with colored version V
+%   \va..\vf       version color macros (v1=blue, v2=red, ...)
+%   \gitcommits{L} a left-to-right commit chain above the trees
+%   \githead{id}   draw a HEAD marker above a commit node
+%   \gitbranch{id}{name} draw a branch label above a commit node
+%
+% Typical use (inside a \documentclass{standalone} file):
+%
+%   \usepackage{gitfig}
+%   \begin{document}
+%   \begin{gitfigure}
+%     \gitcommits{a1b2c3, d4e5f6, 9e5e6a}
+%     \githead{9e5e6a}
+%     \worktree{\blob{file.txt}{\dirty{v2}}}
+%     \staging{\blob{file.txt}{v1}}
+%     \headtree{\blob{file.txt}{v1}}
+%   \end{gitfigure}
+%   \end{document}
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gitfig}[2026/04/16 v0.1 Git three-trees figures]
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{etoolbox}
+\RequirePackage{fontspec}
+\usetikzlibrary{arrows.meta, positioning, fit, calc}
+
+% -- Fonts (LuaLaTeX/XeLaTeX via fontspec) -----------------------------------
+\setmainfont{Fira Sans}
+\setsansfont{Fira Sans}
+\setmonofont{Fira Code}
+
+% -- Palette (DSE Tech pastels, matches ../../.presenterm/theme.yaml) --------
+\definecolor{pastelred}{HTML}{d20000}
+\definecolor{pastelblue}{HTML}{007aff}
+\definecolor{pastelpurple}{HTML}{6E66BA}
+\definecolor{pastelyellow}{HTML}{FBC05E}
+\definecolor{pastelgreen}{HTML}{8fc34f}
+\definecolor{darkgreen}{HTML}{007355}
+\definecolor{gitgray}{HTML}{777777}
+
+% Version is black by default (rendered bold by \blob). Wrap with \dirty{...}
+% to colour it red, meaning "differs from the next tree to the right":
+%   - in the worktree: differs from the staging area (unstaged change)
+%   - in the staging area: differs from HEAD (staged change)
+\newcommand{\dirty}[1]{\textcolor{pastelred}{#1}}
+
+% -- Styles ------------------------------------------------------------------
+\tikzset{
+  gittree-box/.style={
+    draw, thick, rounded corners=2pt,
+    minimum width=3.6cm, minimum height=2.2cm,
+    align=center, font=\sffamily,
+    inner sep=8pt, fill=black!2,
+  },
+  gittree-label/.style={
+    font=\sffamily\bfseries,
+    inner sep=2pt,
+  },
+  gitcommit-node/.style={
+    draw, circle, fill=gitgray!15, thick,
+    minimum size=1.3cm, inner sep=4pt,
+    font=\ttfamily\footnotesize,
+  },
+  gitcommit-arrow/.style={
+    ->, >=Stealth, thick, gitgray,
+  },
+  githead-label/.style={
+    draw=pastelblue, thick, fill=pastelblue!15,
+    rounded corners=1pt, inner sep=2pt,
+    font=\sffamily\bfseries\small,
+  },
+  gitbranch-label/.style={
+    draw=darkgreen, thick, fill=pastelgreen!25,
+    rounded corners=1pt, inner sep=2pt,
+    font=\sffamily\bfseries\small,
+  },
+  githead-arrow/.style={
+    ->, >=Stealth, thick, pastelblue,
+  },
+  gitbranch-arrow/.style={
+    ->, >=Stealth, thick, darkgreen,
+  },
+}
+
+% -- Layout parameters (override with \renewcommand if desired) --------------
+\newcommand{\gittreespacing}{4.5cm} % horizontal distance between tree centers
+\newcommand{\gitcommitspacing}{2.0cm} % horizontal distance between commits
+\newcommand{\gitcommity}{2.7cm}      % y-offset of commit chain above trees
+
+% -- Environment --------------------------------------------------------------
+\newcounter{gitfig@tree}
+\newenvironment{gitfigure}[1][]{%
+  \setcounter{gitfig@tree}{0}%
+  \begin{tikzpicture}[#1]%
+}{%
+  \end{tikzpicture}%
+}
+
+% \blob{filename}{version}
+% A single row inside a tree. Use inside \gittree{..}{..}.
+% Renders as "filename (version)" with a thin space before the parens; the
+% version is bold. Wrap the version in \dirty{..} to colour it red.
+\newcommand{\blob}[2]{#1\,(\textbf{#2}) \\[-0.2ex]}
+
+% \gittree[style]{title}{contents}
+% Places a labeled tree box. Auto-positioned left-to-right in the order called.
+% The optional [style] argument is merged into the box's TikZ styles; pass
+% e.g. `dashed` to indicate an imaginary/abstract tree. Prefer the semantic
+% shortcuts \worktree / \staging / \headtree below.
+\newcommand{\gittree}[3][]{%
+  \stepcounter{gitfig@tree}%
+  \pgfmathsetmacro{\gitfig@x}{(\value{gitfig@tree}-1)*\gittreespacing/1cm}%
+  \node[gittree-box, #1] (gittree-\arabic{gitfig@tree}) at (\gitfig@x,0) {%
+    \begin{tabular}{@{}l@{}}#3\end{tabular}%
+  };%
+  \node[gittree-label, above=2pt of gittree-\arabic{gitfig@tree}]
+       (gittree-label-\arabic{gitfig@tree}) {#2};%
+}
+
+% Semantic shortcuts that bake in the conventional styling:
+%   Worktree     -- solid box (a real directory on disk)
+%   Staging Area -- dashed box (an abstract Git concept)
+%   HEAD         -- dashed box (an abstract Git concept)
+% Call them left-to-right in the order \worktree, \staging, \headtree.
+\newcommand{\worktree}[1]{\gittree{Worktree}{#1}}
+\newcommand{\staging}[1]{\gittree[dashed]{Staging Area}{#1}}
+\newcommand{\headtree}[1]{\gittree[dashed]{HEAD}{#1}}
+
+% -- Commit chain ------------------------------------------------------------
+% \gitcommits{id1, id2, id3, ...}
+% Draws a left-to-right chain of commit nodes above the trees.
+% Each node is named gitcommit-<id> and labeled with <id>.
+\newcommand{\gitcommits}[1]{%
+  \begingroup
+    \def\gitfig@prev{}%
+    \def\gitfig@i{0}%
+    \foreach \gitfig@id [count=\gitfig@k from 0] in {#1} {%
+      \pgfmathsetmacro{\gitfig@cx}{\gitfig@k*\gitcommitspacing/1cm}%
+      \node[gitcommit-node] (gitcommit-\gitfig@id)
+        at (\gitfig@cx,\gitcommity) {\gitfig@id};%
+      \ifnum\gitfig@k>0
+        \draw[gitcommit-arrow]
+          (gitcommit-\gitfig@prev) -- (gitcommit-\gitfig@id);%
+      \fi
+      \xdef\gitfig@prev{\gitfig@id}%
+    }%
+  \endgroup
+}
+
+% \githead{id} -- HEAD pointer above commit <id> (short arrow)
+\newcommand{\githead}[1]{%
+  \node[githead-label, above=0.3cm of gitcommit-#1] (githead-#1) {HEAD};
+  \draw[githead-arrow] (githead-#1) -- (gitcommit-#1);
+}
+
+% \gitbranch{id}{name} -- branch label above commit <id>
+\newcommand{\gitbranch}[2]{%
+  \node[gitbranch-label, above=0.2cm of gitcommit-#1] (gitbranch-#1) {#2};
+  \draw[gitbranch-arrow] (gitbranch-#1) -- (gitcommit-#1);
+}
