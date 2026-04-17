@@ -37,10 +37,14 @@ for security. One of the simplest ways to do this is with Docker Sandboxes
 brew install docker/tap/sbx
 ```
 
+Note that you might be asked to sign in to Docker when you first run `sbx`.
+
 **On Windows**, follow the instructions for installing `sbx` on Ubuntu at
 [GitHub](https://github.com/docker/sbx-releases?tab=readme-ov-file#ubuntu).
 Note that you want the *Ubuntu* instructions, not the *Windows* instructions,
 since you'll be using `sbx` from inside WSL, not Windows.
+
+You might be asked to sign in to Docker when you first run `sbx`.
 
 **Note**: Docker Sandboxes are very new, and they might have some compatibility
 issues with WSL. If you see an error mentioning "KVM" or "nested
@@ -55,9 +59,8 @@ alternative sandboxing tool.
 In the "easy path", you will use OpenCode with free models.
 
 [OpenCode](https://opencode.ai/) is a unified terminal app that can talk to
-many different models. Out of the box, it comes with a handful of free models
-(at the time of writing, these are *Big Pickle*, *MiniMax M2.5*, and *Nemotron
-3 Super*). These models are perhaps not as capable as OpenAI's or Anthropic's
+many different models. Out of the box, it comes with access to a handful of
+free models. These models are perhaps not as capable as OpenAI's or Anthropic's
 frontier models, but they should be good enough for this class.
 
 A few caveats:
@@ -82,9 +85,12 @@ This will create a sandbox, install OpenCode, share the current directory with
 the sandbox, and configure OpenCode so that it can read and write files within
 that sandbox (but not outside of it).
 
-You don't need to log in to use the free models, but you do need to choose
-one. Type `/models` and hit enter, then look through the list for a model
-labeled "Free" on the right side. Pick one and you're ready to go.
+You don't need to log in to OpenCode to use the free models, however, the first
+time you run `sbx run opencode`, you may be asked to sign in to *Docker*. Once
+OpenCode has started, you may need to choose a model. Type `/models` and hit
+enter, then look through the list for a model labeled "Free" on the right side
+-- at the time of writing, these are *Big Pickle*, *MiniMax M2.5*, and
+*Nemotron 3 Super*, but they change regularly. Pick one and you're ready to go.
 
 That's it -- you can start using OpenCode to work on your assignments. If you
 later want to try more capable models, read on.
