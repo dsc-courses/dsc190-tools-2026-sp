@@ -47,12 +47,12 @@ since you'll be using `sbx` from inside WSL, not Windows.
 You might be asked to sign in to Docker when you first run `sbx`.
 
 **Note**: Docker Sandboxes are very new, and they might have some compatibility
-issues with WSL. If you see an error mentioning "KVM" or "nested
-virtualization", you might need to enable nested virtualization in your WSL
-Settings (search for "WSL Settings" in the Start menu). Moreover, Docker
-Sandboxes might not work on Windows 10. If you are on Windows 10 and you have
-trouble getting `sbx` to work, let us know and we'll help you set up an
-alternative sandboxing tool.
+issues with older operating systems. If you are on WSL and you see an error
+mentioning "KVM" or "nested virtualization", you might need to enable nested
+virtualization in your WSL Settings (search for "WSL Settings" in the Start
+menu). Moreover, Docker Sandboxes might not work on Windows 10 or on macOS
+versions before Tahoe. If you have trouble getting `sbx` to work, see [Using
+Docker Containers as Agent Sandboxes](https://github.com/dsc-courses/dsc190-tools-2026-sp/blob/main/resources/03-docker_container_sandboxes/README.md) for an alternative approach.
 
 ## Option 1) The easy path with OpenCode (free)
 
