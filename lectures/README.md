@@ -9,3 +9,4 @@
 | 05 | Environments | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/05-environment.pdf) |
 | 06 | Virtual Environments and Agents | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/06-venvs_and_agents.pdf) |
 | 07 | Learning Git | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/07-git-I.pdf) |
+| 08 | Git Branching and Remotes | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/08-git-II.pdf) |
