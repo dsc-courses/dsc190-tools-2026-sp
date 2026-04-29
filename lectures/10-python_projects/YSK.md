@@ -37,6 +37,9 @@
 - What does `uv run pytest` do?
     - **Answer**: Runs `pytest` inside the project's virtual environment.
 
+- What does `uvx ruff` do?
+    - **Answer**: Installs and runs `ruff` outside of a project.
+
 # Declarative dependency management
 
 - What does `uv sync` do?
