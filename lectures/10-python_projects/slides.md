@@ -453,6 +453,16 @@ ruff
 
 - Ruff is a linter *and* formatter.
 - It checks for common errors and makes sure your code is tidy.
+- To install it into your project with uv:
+
+```bash
+uv add --dev ruff
+```
+- To run it anywhere (outside of a project) with uv:
+
+```bash
+uvx ruff
+```
 
 Example
 =======
