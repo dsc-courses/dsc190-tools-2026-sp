@@ -182,9 +182,30 @@ repository.
 At the end of the last step, you created a new branch called `dev`, but you
 didn't push it. We'll do so in just a moment, but before we do, run `git branch -a. vv` again. You should see that there is now a new branch called `dev`, but there is no corresponding remote tracking branch for it yet.
 
-Now run `git push`, and then re-run `git branch -avv`. You should see that
-there is now a new remote tracking branch called `origin/dev` that corresponds
-to your `dev` branch.
+Now run `git push`. This time, you'll likely see an error like:
+
+```text
+fatal: The current branch dev has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin dev
+```
+
+This is because `dev` is a brand new branch that you created locally, and git
+doesn't yet know which remote branch (if any) it should be associated with. To
+fix this, run the command git suggests:
+
+```bash
+git push --set-upstream origin dev
+```
+
+The `--set-upstream` flag (which can be shortened to `-u`) tells git to create
+a `dev` branch on the remote and to set up your local `dev` branch to track
+it. After this first push, future `git push` and `git pull` commands on this
+branch will work without needing the flag.
+
+Now re-run `git branch -avv`. You should see that there is now a new remote
+tracking branch called `origin/dev` that corresponds to your `dev` branch.
 
 Now let's switch to Justin's copy of the repository and run `git branch -avv`
 there. You should see that there is no trace of the `dev` branch in Justin's
