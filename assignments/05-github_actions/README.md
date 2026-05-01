@@ -327,8 +327,8 @@ it. Then push it to GitHub and open a pull request to merge it into `main`. The
 
 ## What to turn in
 
-Submit to Gradescope a single file named `url.txt` containing a single line
-with the URL of your GitHub repository. The autograder will:
+Submit to Gradescope a single file named `repo_url.txt` containing a single
+line with the URL of your GitHub repository. The autograder will:
 
 - verify that the repo is public and accessible,
 - check that the expected files (`pyproject.toml`, `uv.lock`,
