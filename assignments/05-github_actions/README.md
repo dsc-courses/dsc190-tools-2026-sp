@@ -97,10 +97,11 @@ First, clone your git repo to your local machine. You can find the URL to clone
 on the main page of your repo, under the green "Code" button. It should look
 like: `git@github.com:<your-username>/<your-repo-name>.git`
 
-While in a shell inside the cloned repo, initialize a new `uv` project. Then,
-using `uv`, add `numpy` as a runtime dependency and `ruff` as a dev dependency.
-Then commit these changes (along with all of the files created by `uv init`) to
-the main branch.
+While in a shell inside the cloned repo, initialize a new `uv` project at the
+root of the repo (that is, the `pyproject.toml` should be at the top level of
+your git repository, and not in a subdirectory). Then, using `uv`, add `numpy`
+as a runtime dependency and `ruff` as a dev dependency. Then commit these
+changes (along with all of the files created by `uv init`) to the main branch.
 
 We want to push these changes to GitHub, but because of the branch protection
 rule we just set up, we can't push directly to `main`. (Go ahead and try: you
@@ -322,8 +323,9 @@ the config file should be checked into the repo so that anyone who clones it
 can install the same hook with one command.
 
 Create a new feature branch with the `.pre-commit-config.yaml` file and commit
-it. Then push it to GitHub and open a pull request to merge it into `main`. The
-`lint` check should pass. Merge the PR and delete the branch.
+it (along with all other changed project files). Then push it to GitHub and
+open a pull request to merge it into `main`. The `lint` check should pass.
+Merge the PR and delete the branch.
 
 ## What to turn in
 
