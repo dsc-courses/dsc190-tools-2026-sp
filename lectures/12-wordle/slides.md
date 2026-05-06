@@ -52,6 +52,15 @@ The Problem with Vibe Coding
 - Vibe coding is great for one-off scripts and utilities.
 - But it can lead to a "house of cards".
 
+Claim
+=====
+
+- Claim: coding agents are great at coding, bad at *architecting* and figuring out real-world constraints.
+    - Problem: most examples we can do in a single lecture won't require much of either.
+    - Hard to demonstrate cases where the coding agents struggle.
+- Nevertheless, vibe coding has limits, and for non-trivial problems a more structured approach is needed.
+
+
 The Middle Path
 ===============
 
@@ -99,13 +108,13 @@ A terminal app with two subcommands:
 - wordle play: play a game of Wordle.
 - wordle cheat: suggest good next guesses based on feedback.
 
-
 Demo
 ====
 
 - We'll "live code" this using a coding agent.
 - **Disclaimer**: this task is **easy** -- it can be vibecoded with Claude, etc.
-- But we'll do it using the "middle path".
+    - Catch-22: any task that is non-trivial for a coding agent would be too complex to demo in a single lecture.
+- Nevertheless, we'll see how to do it using the "middle path".
 
 Getting Started
 ===============
