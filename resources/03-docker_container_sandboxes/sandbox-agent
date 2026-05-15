@@ -86,5 +86,5 @@ exec docker run --rm -it --init \
     -v "$home_volume:/home/agent" \
     -v "$PWD:/work" \
     -w /work \
-    "${env_args[@]}" \
-    "$image" "${passthrough[@]}"
+    ${env_args[@]+"${env_args[@]}"} \
+    "$image" ${passthrough[@]+"${passthrough[@]}"}
