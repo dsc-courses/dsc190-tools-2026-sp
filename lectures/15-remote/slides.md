@@ -21,24 +21,6 @@ git clone https://github.com/dsc-courses/dsc190-tools-2026-sp.git
 
 ---
 
-News
-====
-
-- I will be out of town.
-    - Wednesday (May 20) lecture will be pre-recorded.
-    - Monday (May 25) lecture is Memorial Day (no lecture).
-    - Wednesday (May 27) lecture will be pre-recorded.
-- Still will have in-person quiz on Friday!
-    - This is the last week of content that will be on quizzes.
-
-News
-====
-
-- This week's assignment (Assignment 08) is the last, apart from the Final Project.
-- Details of the Final Project will be released this week.
-
----
-
 <!-- new_lines: 4 -->
 <!-- alignment: center -->
 
