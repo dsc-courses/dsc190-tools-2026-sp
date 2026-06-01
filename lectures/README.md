@@ -18,3 +18,4 @@
 | 14 | Notebooks | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/14-notebooks.pdf) |
 | 15 | Working Remotely | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/15-remote.pdf) |
 | 16 | Docker | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/16-docker.pdf) |
+| 17 | Deploying Applications | [PDF](https://dsc-courses.s3.us-west-000.backblazeb2.com/dsc190-tools-2026-sp/17-deploying.pdf) |
