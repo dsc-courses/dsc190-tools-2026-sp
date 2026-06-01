@@ -1,10 +1,6 @@
 ---
 theme:
   path: ../../.presenterm/theme.yaml
-  override:
-    footer:
-      style: template
-      right: "{current_slide} / {total_slides}"
 options:
   list_item_newlines: 2
 ---
@@ -138,6 +134,13 @@ Demo 02
 
 Demo 02 contains code that trains a decision tree with sklearn and *pickles* the
 model to a file: model.pkl.
+
+The Learned Tree
+================
+
+<!-- alignment: center -->
+
+![image:w:100%](images/decision-tree.png)
 
 Demo 03
 =======
