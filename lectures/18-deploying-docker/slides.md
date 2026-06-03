@@ -15,6 +15,13 @@ To follow along, clone the course repo:
 git clone https://github.com/dsc-courses/dsc190-tools-2026-sp.git
 ```
 
+Recall: Our Model
+=================
+
+<!-- alignment: center -->
+
+![image:w:100%](images/decision-tree.png)
+
 ---
 
 <!-- new_lines: 4 -->
@@ -216,6 +223,17 @@ Demo
 ====
 
 Publish the app to Hugging Face Spaces.
+
+Deciding: Server Side or Client Side? 
+======================================
+
+- Default to deploying client-side.
+- When do we prefer server-side code execution?
+    - When the code is secret/proprietary.
+    - When the computational resources are large.
+    - When the app involves many complex pieces that would be difficult to implement in JavaScript.
+        - e.g., a database, user authentication, etc.
+- This example: maybe should have been implemented in JS (client-side).
 
 ---
 
