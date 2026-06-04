@@ -79,11 +79,20 @@ any tool *not* discussed in class.
 What to Submit
 --------------
 
-You will submit the URL to your GitHub repository on Gradescope.
+You will submit a single plain-text file named `repo_url.txt` to Gradescope.
+The first line of this file should be the URL of your public GitHub repository,
+for example:
+
+```
+https://github.com/your-username/your-repo
+```
 
 Grading
 -------
 
-Your project will be both manually and automatically graded. The autograder will
-check that your public GitHub repo exists and will try to install the too with `uv`. The manual grading will check that the tool meets the above requirements and that it
-solves a non-trivial problem.
+Your project will be both manually and automatically graded. The autograder
+will check that your public GitHub repo exists, that it has an organic commit
+history and a `README.md` with the required sections, and that the tool can be
+installed with `uv add "git+<your-url>"` and its command found and run. The
+manual grading will check that the tool meets the above requirements and that
+it solves a non-trivial problem.
